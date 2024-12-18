@@ -1,0 +1,40 @@
+---
+import Button from "./Button.astro";
+// Supports weights 100-900
+import "@fontsource-variable/onest";
+import "@fontsource/abeezee";
+---
+
+<section class="w-full h-screen flex justify-center items-center">
+  <div class="w-[1400px] h-[680px] flex justify-between flex-row-reverse">
+    <article class="w-[675px] h-[679]">
+      <img
+        src="/public/recursos/ImgServBrown.png"
+        class="rounded-[25px]"
+        alt=""
+      />
+    </article>
+    <div class="w-[675px] h-[679] flex items-center justify-center">
+      <section class="w-[675px] h-full flex flex-col justify-center">
+        <h1 class="w-[675px] text-[45px] font-extrabold">
+          Brow Lamination: Cejas Perfectas y Definidas
+        </h1>
+        <p class="w-[675px] mt-5 mb-5 text-[20px] font-medium">
+          Consigue unas cejas impecables con el efecto "celebritie": peinadas
+          hacia arriba, ordenadas y fijas. Este tratamiento semipermanente alisa
+          y redefine incluso el vello más rebelde. ¡Di adiós a las cejas
+          desordenadas!
+        </p>
+        <Button href="">¡Descubre más!</Button>
+      </section>
+    </div>
+  </div>
+</section>
+<style>
+  h1 {
+    font-family: "Onest Variable", sans-serif;
+  }
+  p {
+    font-family: "ABeeZee", sans-serif;
+  }
+</style>

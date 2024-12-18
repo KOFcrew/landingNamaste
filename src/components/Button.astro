@@ -1,0 +1,30 @@
+---
+import "@fontsource/abeezee";
+---
+
+<a
+  class="font-bold text-[20px] rounded-full w-[255px] h-[70px] text-white bg-[#050708] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 px-5 py-2.5 text-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 flex items-center justify-center gap-x-2"
+  {...Astro.props}
+>
+  <slot />
+  <svg
+    class="size-5"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 14 10"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+  </svg>
+</a>
+
+<style>
+  a {
+    font-family: "ABeeZee", sans-serif;
+  }
+</style>

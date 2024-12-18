@@ -1,0 +1,43 @@
+---
+import Button from "./Button.astro";
+// Supports weights 100-900
+import "@fontsource-variable/onest";
+import "@fontsource/abeezee";
+---
+
+<section
+  id="SecEmpreServ"
+  class="w-full h-screen flex justify-center items-center"
+>
+  <div class="w-[1400px] h-[680px] flex justify-between">
+    <article class="w-[675px] h-[679]">
+      <img
+        src="/public/recursos/ImgServ.png"
+        class="rounded-[25px]"
+        alt="Imagen de Lifting"
+      />
+    </article>
+    <div class="w-[675px] h-[679] flex items-center justify-center">
+      <section class="w-[675px] h-full flex flex-col justify-center">
+        <h1 class="w-[675px] text-[45px] font-extrabold">
+          Servicio de Lifting y Extensión de pestañas
+        </h1>
+        <p class="w-[675px] mt-5 mb-5 text-[20px] font-medium">
+          Transforma tu mirada con nuestro servicio de Lifting y Extensión de
+          Pestañas. Logra una curvatura perfecta, volumen y longitud, con
+          técnicas avanzadas y productos de alta calidad, para una mirada
+          intensa y natural. ¡Resalta tu belleza sin esfuerzo!
+        </p>
+        <Button href="">¡Descubre más!</Button>
+      </section>
+    </div>
+  </div>
+</section>
+<style>
+  h1 {
+    font-family: "Onest Variable", sans-serif;
+  }
+  p {
+    font-family: "ABeeZee", sans-serif;
+  }
+</style>

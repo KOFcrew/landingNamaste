@@ -1,0 +1,35 @@
+---
+import Button from "./Button.astro";
+// Supports weights 100-900
+import "@fontsource-variable/onest";
+---
+
+<section class="w-full h-screen flex justify-center items-center">
+  <div class="w-[1912px] h-[470px] flex justify-center">
+    <section class="w-[1200px] h-[470px] flex items-center justify-around">
+      <article class="w-[536px] h-[365px]">
+        <img
+          class="rounded-[25px]"
+          src="/public/recursos/Logo.png"
+          alt="Imagen del logo de la empresa"
+        />
+      </article>
+      <div class="w-[536px] h-full flex flex-col justify-center">
+        <h1 class="w-[536px] mb-6 text-[25px] font-semibold">
+          En Namaste realzamos tu mirada y rostro con extensiones de pestañas,
+          lifting, microblading, perfilado de cejas y más. Técnicas innovadoras
+          para un look radiante, natural y duradero. ¡Siéntete única, siéntete
+          Namaste!
+        </h1>
+
+        <Button href="#SecempreDM">Descubre más</Button>
+      </div>
+    </section>
+  </div>
+</section>
+
+<style>
+  h1 {
+    font-family: "Onest Variable", sans-serif;
+  }
+</style>
