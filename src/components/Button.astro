@@ -2,13 +2,18 @@
 import "@fontsource/abeezee";
 ---
 
+<!-- class="font-bold text-[20px] rounded-full w-[255px] h-[70px] text-white hover:text-[#D4AF37]
+  bg-[#D4AF37] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none px-5 py-2.5 text-center
+   dark:hover:bg-[#000000]/70 flex items-center justify-center gap-x-2 transition-all" -->
 <a
-  class="font-bold text-[20px] rounded-full w-[255px] h-[70px] text-white bg-[#050708] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 px-5 py-2.5 text-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 flex items-center justify-center gap-x-2"
+  class="relative flex w-[255px] h-[70px] gap-x-2 text-[20px] items-center rounded-full justify-center overflow-hidden bg-gray-800 text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#D4AF37] before:duration-500 before:ease-out hover:shadow-[#D4AF37] hover:before:h-80 hover:before:w-80"
   {...Astro.props}
 >
-  <slot />
+  <span class="relative z-10">
+    <slot />
+  </span>
   <svg
-    class="size-5"
+    class="size-5 z-10"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
