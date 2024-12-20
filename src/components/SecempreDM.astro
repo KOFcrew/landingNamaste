@@ -2,6 +2,7 @@
 import Button from "./Button.astro";
 // Supports weights 100-900
 import "@fontsource-variable/onest";
+import SpanDegradate from "./SpanDegradate.astro";
 ---
 
 <section
@@ -13,17 +14,19 @@ import "@fontsource-variable/onest";
       <article class="w-[445px] h-[490px]">
         <img
           src="/public/recursos/capturaHedre.png"
-          class="rounded-[25px] shadow-[0_20px_50px_rgba(0,0,0,_0.8)]"
+          class="rounded-[25px] shadow-[0_20px_50px_rgba(0,0,0,_0.8)] hover:scale-105 transition duration-500"
           alt=""
         />
       </article>
       <div class="w-[636px] h-full flex flex-col justify-center">
         <h1 class="w-full mb-6 text-[25px] font-semibold">
-          Soy Katiuska Zevallos Orihuela, Lashista Trainer con casi 12 años de
-          experiencia en extensiones de pestañas, lifting y cejas. He estudiado
-          en reconocidas academias de belleza en Perú y el extranjero, y me
-          mantengo en constante formación para estar siempre a la vanguardia en
-          estas técnicas.
+          Soy Katiuska Zevallos Orihuela,<SpanDegradate>
+            Lashista Trainer</SpanDegradate
+          > con casi <SpanDegradate> 12 años de experiencia </SpanDegradate> en extensiones
+          de pestañas, lifting y cejas. He estudiado en reconocidas academias de
+          belleza en Perú y el extranjero, y me mantengo en <SpanDegradate
+            >constante formación</SpanDegradate
+          > para estar siempre a la vanguardia en estas técnicas.
         </h1>
         <Button href="#SecEmpreServ"> Servicios y Trabajos</Button>
       </div>

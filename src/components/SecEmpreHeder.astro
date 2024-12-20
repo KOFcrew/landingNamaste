@@ -2,6 +2,7 @@
 import Button from "./Button.astro";
 // Supports weights 100-900
 import "@fontsource-variable/onest";
+import SpanDegradate from "./SpanDegradate.astro";
 ---
 
 <!-- text-[#FFCA28] [text-shadow:_0_8px_8px_rgb(0,0,0,0.8)] leading-snug font-manrope -->
@@ -10,23 +11,18 @@ import "@fontsource-variable/onest";
     <section class="w-[1400px] h-full flex items-center justify-between">
       <article class="w-[636px] h-[465px]">
         <img
-          class="rounded-[25px] shadow-[0_20px_50px_rgba(0,0,0,_0.8)]"
+          class="rounded-[25px] shadow-[0_20px_50px_rgba(0,0,0,_0.8)] hover:scale-105 transition duration-500"
           src="/public/recursos/Logo.png"
           alt="Imagen del logo de la empresa"
         />
       </article>
       <div class="w-[636px] h-full flex flex-col justify-center">
         <h1 class="w-full mb-6 text-[25px] font-semibold">
-          En Namaste realzamos tu mirada y rostro con <span
-            class="bg-gradient-to-b from-[#585040] via-[#d4ae3b] to-[#585040] inline-block text-transparent bg-clip-text"
-          >
-            extensiones de pestañas</span
-          >, lifting, <span>microblading</span> , perfilado de cejas y más. <span
-          >
-            Técnicas innovadoras
-          </span>
-          para un look <span> radiante, natural y duradero</span>. <span
-            >¡Siéntete única, siéntete Namaste!</span
+          En <SpanDegradate>Namaste</SpanDegradate> realzamos tu mirada y rostro
+          con extensiones de pestañas, lifting, microblading , perfilado de cejas
+          y más. <SpanDegradate> Técnicas innovadoras </SpanDegradate>
+          para un look radiante, natural y duradero. <SpanDegradate
+            >¡Siéntete única, siéntete Namaste!</SpanDegradate
           >
         </h1>
 
@@ -41,5 +37,4 @@ import "@fontsource-variable/onest";
     font-family: "Onest Variable", sans-serif;
     color: #000000;
   }
-
 </style>

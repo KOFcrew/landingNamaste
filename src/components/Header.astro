@@ -1,14 +1,95 @@
-<nav class="sticky top-0 z-10 bg-white/50 backdrop-blur-md shadow-lg mx-[545px] mt-4 rounded-xl p-2 place-content-between items-center flex flex-row">
-    <img class="w-[100px] ml-3" src="/public/LOGO.svg" alt="logo.header">
-    <ul class=" flex flex-row gap-5 p-4 font-bold text-2xl">
-        <li  class="text-black">
-            <a href="/">Inicio</a>
-        </li>
-        <li class="text-black">
-            <a href="/Servicios">Servicios</a>
-        </li>
-        <li class="text-black">
-            <a href="/Trabajos">Trabajos</a> 
-        </li>
-    </ul>
+---
+import "@fontsource-variable/onest";
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 left-1/2 transform -translate-x-1/2 w-[50%] mt-4 z-10 bg-white/50 backdrop-blur-md shadow-lg rounded-xl p-2 flex flex-row place-content-between items-center transition-transform"
+>
+  <img class="w-[100px] rounded-lg" src="/public/LOGO.svg" alt="" />
+  <ul class="flex flex-row gap-5 p-4 font-bold text-2xl">
+    <li class="text-black hover:scale-110 transition duration-500">
+      <a
+        href="/"
+        class="px-3 py-2 text-black hover:bg-white/50 transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
+        >Inicio</a
+      >
+    </li>
+    <li class="text-black hover:scale-110 transition duration-500">
+      <a
+        href="/Servicios"
+        class="px-3 py-2 text-black hover:bg-white/50 transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
+        >Servicios</a
+      >
+    </li>
+    <li class="text-black hover:scale-110 transition duration-500">
+      <a
+        href="/Trabajos"
+        class="px-3 py-2 text-black hover:bg-white/50 transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
+        >Trabajos</a
+      >
+    </li>
+  </ul>
 </nav>
+
+<style>
+  a {
+    font-family: "Onest Variable", sans-serif;
+  }
+</style>
+
+<script>
+  let lastScroll = 0;
+  const navbar = document.getElementById("navbar");
+  let hideTimeout;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+
+    // Mostrar la barra si se desplaza hacia arriba o está al inicio
+    if (currentScroll < lastScroll || currentScroll === 0) {
+      clearTimeout(hideTimeout);
+      navbar.classList.remove("-translate-y-[120%]");
+    } else {
+      // Ocultar la barra si se desplaza hacia abajo
+      navbar.classList.add("-translate-y-[120%]");
+
+      // Mostrarla después de unos segundos
+      clearTimeout(hideTimeout);
+      hideTimeout = setTimeout(() => {
+        navbar.classList.remove("-translate-y-[120%]");
+      }, 3000);
+    }
+
+    lastScroll = currentScroll;
+  });
+</script>
+
+<!-- <nav
+  class="sticky top-0 z-10 bg-white/50 backdrop-blur-md shadow-lg mx-[545px] mt-4 rounded-xl p-3 place-content-between items-center flex flex-row"
+>
+  <img class="w-[100px] ml-3" src="/public/LOGO.svg" alt="logo.header" />
+  <ul class="flex flex-row gap-5 p-4 font-bold text-2xl">
+    <li class="text-black hover:scale-110 transition duration-500">
+      <a
+        href="/"
+        class="px-3 py-2 text-black hover:bg-white/50 transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
+        >Inicio</a
+      >
+    </li>
+    <li class="text-black hover:scale-110 transition duration-500">
+      <a
+        href="/Servicios"
+        class="px-3 py-2 text-black hover:bg-white/50 transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
+        >Servicios</a
+      >
+    </li>
+    <li class="text-black hover:scale-110 transition duration-500">
+      <a
+        href="/Trabajos"
+        class="px-3 py-2 text-black hover:bg-white/50 transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
+        >Trabajos</a
+      >
+    </li>
+  </ul>
+</nav> -->
