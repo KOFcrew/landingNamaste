@@ -4,25 +4,31 @@ import "@fontsource-variable/onest";
 
 <nav
   id="navbar"
-  class="fixed top-0 left-1/2 transform -translate-x-1/2 w-[50%] mt-4 z-10 bg-white/50 backdrop-blur-md shadow-lg rounded-xl p-2 flex flex-row place-content-between items-center transition-transform"
+  class="fixed top-0 left-1/2 transform -translate-x-1/2 w-[65%] lg:w-[50%] mt-4 z-10 bg-white/50 backdrop-blur-md shadow-lg rounded-xl p-2 flex flex-row place-content-between items-center transition-transform"
 >
-  <img class="w-[100px] rounded-lg" src="/public/LOGO.svg" alt="" />
-  <ul class="flex flex-row gap-5 p-4 font-bold text-2xl">
-    <li class="text-black hover:scale-110 transition duration-300">
+  <img
+    class="w-[80px] lg:w-[100px] rounded-lg"
+    src="/public/LOGO.svg"
+    alt="Logo"
+  />
+
+  <!-- Menú Normal en pantallas grandes -->
+  <ul class="hidden lg:flex flex-row gap-5 p-4 font-bold text-lg lg:text-2xl">
+    <li class="text-black hover:scale-110 transition duration-500">
       <a
         href="/"
         class="px-3 py-2 text-black hover:bg-white/50 transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
         >Inicio</a
       >
     </li>
-    <li class="text-black hover:scale-110 transition duration-300">
+    <li class="text-black hover:scale-110 transition duration-500">
       <a
         href="/Servicios"
         class="px-3 py-2 text-black hover:bg-white/50 transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
         >Servicios</a
       >
     </li>
-    <li class="text-black hover:scale-110 transition duration-3 00">
+    <li class="text-black hover:scale-110 transition duration-500">
       <a
         href="/Trabajos"
         class="px-3 py-2 text-black hover:bg-white/50 transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
@@ -30,6 +36,53 @@ import "@fontsource-variable/onest";
       >
     </li>
   </ul>
+
+  <!-- Botón desplegable en pantallas pequeñas -->
+  <div class="relative lg:hidden group">
+    <button
+      class="flex items-center gap-2 px-3 py-2 text-black font-bold text-lg bg-white/50 hover:bg-white hover:text-[#d4ae3b] rounded-md shadow-md transition-all"
+    >
+      Menú
+      <svg
+        class="w-5 h-5"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+    <ul
+      class="absolute right-0 mt-2 bg-white/55 backdrop-blur-md shadow-lg rounded-md p-4 hidden group-hover:flex flex-col gap-2"
+    >
+      <li>
+        <a
+          href="/"
+          class="block px-4 py-2 text-black hover:bg-white transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
+          >Inicio</a
+        >
+      </li>
+      <li>
+        <a
+          href="/Servicios"
+          class="block px-4 py-2 text-black hover:bg-white transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
+          >Servicios</a
+        >
+      </li>
+      <li>
+        <a
+          href="/Trabajos"
+          class="block px-4 py-2 text-black hover:bg-white transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
+          >Trabajos</a
+        >
+      </li>
+    </ul>
+  </div>
 </nav>
 
 <style>
@@ -39,57 +92,30 @@ import "@fontsource-variable/onest";
 </style>
 
 <script>
+  // Variables globales para seguimiento del desplazamiento
   let lastScroll = 0;
   const navbar = document.getElementById("navbar");
   let hideTimeout;
 
+  // Agregar el evento de desplazamiento
   window.addEventListener("scroll", () => {
     const currentScroll = window.pageYOffset;
 
-    // Mostrar la barra si se desplaza hacia arriba o está al inicio
+    // Mostrar el navbar si se desplaza hacia arriba o está en la parte superior de la página
     if (currentScroll < lastScroll || currentScroll === 0) {
-      clearTimeout(hideTimeout);
-      navbar.classList.remove("-translate-y-[120%]");
+      clearTimeout(hideTimeout); // Cancelar cualquier temporizador activo
+      navbar.classList.remove("-translate-y-[120%]"); // Mostrar el navbar
     } else {
-      // Ocultar la barra si se desplaza hacia abajo
+      // Ocultar el navbar si se desplaza hacia abajo
       navbar.classList.add("-translate-y-[120%]");
 
-      // Mostrarla después de unos segundos
+      // Reaparecer automáticamente después de 3 segundos
       clearTimeout(hideTimeout);
       hideTimeout = setTimeout(() => {
         navbar.classList.remove("-translate-y-[120%]");
       }, 3000);
     }
 
-    lastScroll = currentScroll;
+    lastScroll = currentScroll; // Actualizar la última posición de desplazamiento
   });
 </script>
-
-<!-- <nav
-  class="sticky top-0 z-10 bg-white/50 backdrop-blur-md shadow-lg mx-[545px] mt-4 rounded-xl p-3 place-content-between items-center flex flex-row"
->
-  <img class="w-[100px] ml-3" src="/public/LOGO.svg" alt="logo.header" />
-  <ul class="flex flex-row gap-5 p-4 font-bold text-2xl">
-    <li class="text-black hover:scale-110 transition duration-500">
-      <a
-        href="/"
-        class="px-3 py-2 text-black hover:bg-white/50 transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
-        >Inicio</a
-      >
-    </li>
-    <li class="text-black hover:scale-110 transition duration-500">
-      <a
-        href="/Servicios"
-        class="px-3 py-2 text-black hover:bg-white/50 transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
-        >Servicios</a
-      >
-    </li>
-    <li class="text-black hover:scale-110 transition duration-500">
-      <a
-        href="/Trabajos"
-        class="px-3 py-2 text-black hover:bg-white/50 transition-all duration-500 hover:text-[#d4ae3b] rounded-md"
-        >Trabajos</a
-      >
-    </li>
-  </ul>
-</nav> -->
