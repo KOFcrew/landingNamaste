@@ -91,31 +91,56 @@ import "@fontsource-variable/onest";
   }
 </style>
 
+<!-- Para arreglar el problema del navbar se mejoro el codigo y se instalo un paquete de "solid-js" para poder usar el hook "onMount" y asi poder hacer el navbar mas interactivo y que se oculte cuando se haga scroll hacia abajo y se muestre cuando se haga scroll hacia arriba.;  -->
+
+<style>
+  a {
+    font-family: "Onest Variable", sans-serif;
+  }
+</style>
+
 <script>
+  import { onMount } from "solid-js";
+
   // Variables globales para seguimiento del desplazamiento
   let lastScroll = 0;
-  const navbar = document.getElementById("navbar");
-  let hideTimeout;
+  let hideTimeout: number | undefined;
 
-  // Agregar el evento de desplazamiento
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
+  onMount(() => {
+    const navbar = document.getElementById("navbar");
 
-    // Mostrar el navbar si se desplaza hacia arriba o está en la parte superior de la página
-    if (currentScroll < lastScroll || currentScroll === 0) {
-      clearTimeout(hideTimeout); // Cancelar cualquier temporizador activo
-      navbar.classList.remove("-translate-y-[120%]"); // Mostrar el navbar
-    } else {
-      // Ocultar el navbar si se desplaza hacia abajo
-      navbar.classList.add("-translate-y-[120%]");
+    if (navbar) {
+      // Agregar el evento de desplazamiento
+      window.addEventListener("scroll", handleScroll);
 
-      // Reaparecer automáticamente después de 3 segundos
-      clearTimeout(hideTimeout);
-      hideTimeout = setTimeout(() => {
-        navbar.classList.remove("-translate-y-[120%]");
-      }, 3000);
+      // Limpiar el evento de desplazamiento cuando el componente se desmonta
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
     }
-
-    lastScroll = currentScroll; // Actualizar la última posición de desplazamiento
   });
+
+  function handleScroll() {
+    const currentScroll = window.pageYOffset;
+    const navbar = document.getElementById("navbar");
+
+    if (navbar) {
+      // Mostrar el navbar si se desplaza hacia arriba o está en la parte superior de la página
+      if (currentScroll < lastScroll || currentScroll === 0) {
+        clearTimeout(hideTimeout); // Cancelar cualquier temporizador activo
+        navbar.classList.remove("-translate-y-[120%]"); // Mostrar el navbar
+      } else {
+        // Ocultar el navbar si se desplaza hacia abajo
+        navbar.classList.add("-translate-y-[120%]");
+
+        // Reaparecer automáticamente después de 3 segundos
+        clearTimeout(hideTimeout);
+        hideTimeout = setTimeout(() => {
+          navbar.classList.remove("-translate-y-[120%]");
+        }, 3000);
+      }
+
+      lastScroll = currentScroll; // Actualizar la última posición de desplazamiento
+    }
+  }
 </script>
