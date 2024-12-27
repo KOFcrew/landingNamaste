@@ -3,11 +3,12 @@ import Button from "./Button.astro";
 // Supports weights 100-900
 import "@fontsource-variable/onest";
 import SpanDegradate from "./SpanDegradate.astro";
+import ImgSecempreDM from "./ImgSecempreDM.astro";
 ---
 
 <section
   id="SecempreDM"
-  class="w-full h-screen flex justify-center items-center"
+  class="w-full h-screen flex justify-center items-center border-2 border-red-600"
 >
   <div class="w-full h-[575px] flex justify-center">
     <section
@@ -16,17 +17,13 @@ import SpanDegradate from "./SpanDegradate.astro";
       <article
         class="2xl:w-[445px] 2xl:h-[490px] w-[300px] h-[340px] 2xl:mb-0 mb-10"
       >
-        <img
-          src="/public/recursos/capturaHedre.png"
-          class="rounded-[25px] shadow-[0_20px_50px_rgba(0,0,0,_0.8)] hover:scale-105 transition duration-500 2xl:w-[445px] 2xl:h-[490px] w-[300px] h-[340px]"
-          alt=""
-        />
+        <ImgSecempreDM />
       </article>
       <div
         class="w-[636px] h-full flex flex-col justify-center items-center 2xl:items-start"
       >
         <h1
-          class="w-full mb-6 text-[25px] font-semibold text-center 2xl:text-left"
+          class="sm:w-full mb-6 sm:text-[25px] font-semibold text-center 2xl:text-left text-[19px] w-screen"
         >
           Soy Katiuska Zevallos Orihuela,<SpanDegradate>
             Lashista Trainer</SpanDegradate
